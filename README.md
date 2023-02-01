@@ -57,6 +57,8 @@ Keep in mind that you should configure the server API url following the Vite rul
 
 When the server is up, open [local host](https://localhost:3000) url on your personal browser. For the complete experience, check the sub-directory `server` and follow the README.md instructions there to get ther back-end server up and running.
 
+You can visit the deployed version [here](https://app-cer.vercel.app/#/)
+
 ---
 
 ## References
