@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// models go here
+model User {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  username String
+  email    String  @unique
+  password String
+  picture  String?
+  role     Role    @default(USER)
+
+  @@map("users")
+}
+
+model Activity {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  name         String     @unique
+  description  String
+  observations String
+  illnesses    String
+  difficulty   Difficulty
+  image        String?
+  items        Item[]     @relation(fields: [itemsId], references: [id])
+  itemsId      String[]   @db.ObjectId
+
+  @@map("activities")
+}
+
+model Item {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  name         String     @unique
+  price        Float
+  description  String
+  link         String?
+  imageUrl     String?
+  itemType     ItemType
+  activities   Activity[] @relation(fields: [activitiesId], references: [id])
+  activitiesId String[]   @db.ObjectId
+
+  @@map("items")
+}
+
+model Question {
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  name         String?
+  contactEmail String
+  text         String
+  isAnswered   Boolean @default(false)
+
+  @@map("questions")
+}
+
+model Testimonial {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  text    String
+  subject String
+  author  String?
+
+  @@map("testimonials")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+  VERY_HARD
+}
+
+enum ItemType {
+  TOY
+  ACCESSORY
+  CLOATHING
+  FOOD
+}
