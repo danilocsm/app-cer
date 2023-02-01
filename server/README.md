@@ -2,13 +2,12 @@
 
 <!-- ![Project Image](project-image-url) -->
 
-### Table of Contents
+## Table of Contents
 
 - [Description](#description)
 - [How To Use](#how-to-use)
+- [Running The Server](#running-the-server)
 - [References](#references)
-- [License](#license)
-- [Author Info](#author-info)
 
 ---
 
@@ -16,7 +15,7 @@
 
 This repository contains the back-end implementation of the AppCER web app. This project was built to support the subject of the term paper for graduating in Computer Science at Universidade Federal de Campina Grande in the year of 2022.
 
-#### Technologies
+### Technologies
 
 - TypeScript
 - Node.js
@@ -24,32 +23,20 @@ This repository contains the back-end implementation of the AppCER web app. This
 - Prisma
 - MongoDB
 
-[Back To The Top](#read-me-template)
-
 ---
 
-## How To Use
+## Running the server
 
-If you want to test the API for yourself, or check this [front-end](https://github.com/danilocsm/t.c.c-frontend) integrated with the back-end and the database, you can execute the following commands to run the project on your machine
-
-#### Installation
-
-First, clone the repository using the following command:
+Go to the _server_ directory using:
 
 ```console
-git clone https://github.com/danilocsm/t.c.c-backend.git
-```
-
-After, go to the _t.c.c-backend_ directory using:
-
-```console
-cd t.c.c-backend
+cd server
 ```
 
 Once you there, run:
 
 ```console
-npm install
+npm ci
 ```
 
 After downloading all of the project dependencies, run:
@@ -60,7 +47,11 @@ npm run dev
 
 When the server is up, you should be able to use the base [url](https://localhost:3333) to start sending your HTTP requests and receiving the responses.
 
-[Back To The Top](#read-me-template)
+Keep in mind that you should create a MongoDB cluster and manually connect it to the application using the prisma schema and .env files
+The following links may be helpful:
+
+- [Prisma MongoDB connection](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/mongodb-typescript-mongodbb)
+- [Creating your MongoDB database](https://www.mongodb.com/atlas/database)
 
 ---
 
@@ -107,40 +98,4 @@ GET /testimonials/all
 - [Prisma](https://www.prisma.io/docs/)
 - [MongoDB](https://www.mongodb.com/docs/)
 
-[Back To The Top](#read-me-template)
-
----
-
-## License
-
-MIT License
-
-Copyright (c) 2022 Danilo César Ribeiro Garcia de Medeiros
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-[Back To The Top](#read-me-template)
-
----
-
-## Author Info
-
-- GitHub - [Danilo César Ribeiro Garcia de Medeiros](https://github.com/danilocsm)
-
-[Back To The Top](#read-me-template)
+[Back To The Top](#rest-api-for-appcer)
