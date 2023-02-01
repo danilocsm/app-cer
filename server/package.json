@@ -43,7 +43,7 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "name": "t.c.c.-backend",
+  "name": "app-cer-server",
   "version": "1.0.0",
   "main": "index.js"
 }
