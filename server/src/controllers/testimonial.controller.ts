@@ -16,12 +16,12 @@ export class TestimonialController implements Controller {
 
   initializeRoutes() {
     this.router.post(
-      "/create",
+      "",
       validationMiddleware(TestimonialDTO, false),
       this.createTestimonial
     );
 
-    this.router.get("/all", this.getAllTestimonials);
+    this.router.get("", this.getAllTestimonials);
 
     this.router.use(authMiddleware);
 

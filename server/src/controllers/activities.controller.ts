@@ -17,16 +17,16 @@ export class ActivityController implements Controller {
   }
 
   initializeRoutes() {
-    this.router.get("/all", this.getAllActivities);
+    this.router.get("", this.getAllActivities);
 
     this.router.get("/:id", this.getUnique);
 
-    this.router.get("/:id/getItems", this.getItems);
+    this.router.get("/:id/items", this.getItems);
 
     this.router.use(authMiddleware);
 
     this.router.post(
-      "/create",
+      "",
       validationMiddleware(ActivityDTO, false),
       this.createActivity
     );

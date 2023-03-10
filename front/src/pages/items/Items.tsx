@@ -9,23 +9,23 @@ import { useFetch } from "../../hooks/custom.hooks";
 import { ItemObjectProps } from "../../lib/utils";
 
 function Items() {
-  const [fetchUrl, setFetchUrl] = useState<string>("/items/all/TOY");
+  const [fetchUrl, setFetchUrl] = useState<string>("/items?filter=TOY");
   const { data, loading } = useFetch<ItemObjectProps[]>(fetchUrl, []);
   const [itemType, setItemType] = useState<string>("");
 
   useEffect(() => {
     switch (itemType) {
       case "Brinquedos":
-        setFetchUrl("/items/all/TOY");
+        setFetchUrl("/items?filter=TOY");
         break;
       case "Mobiliário":
-        setFetchUrl("/items/all/ACCESSORY");
+        setFetchUrl("/items?filter=ACCESSORY");
         break;
       case "Vestuário":
-        setFetchUrl("/items/all/CLOATHING");
+        setFetchUrl("/items?filter=CLOATHING");
         break;
       case "Alimentação":
-        setFetchUrl("/items/all/FOOD");
+        setFetchUrl("/items?filter=FOOD");
         break;
     }
   }, [itemType]);

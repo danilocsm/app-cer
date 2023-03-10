@@ -7,7 +7,7 @@ import { ActivityObjectProps } from "../../lib/utils";
 
 function ActivitiesDashboard() {
   const { data, loading, refetch } = useFetch<ActivityObjectProps[]>(
-    "/activities/all",
+    "/activities",
     []
   );
 

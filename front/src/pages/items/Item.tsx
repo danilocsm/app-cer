@@ -9,7 +9,7 @@ import { ItemObjectProps } from "../../lib/utils";
 function Item() {
   const item: ItemObjectProps = useLocation().state as ItemObjectProps;
   const { data, loading } = useFetch<string[]>(
-    `/items/${item.id}/getActivities`,
+    `/items/${item.id}/activities`,
     []
   );
 

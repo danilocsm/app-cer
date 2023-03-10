@@ -8,7 +8,7 @@ function Help() {
   const onSubmit = async (event: FormEvent, data: any) => {
     event.preventDefault();
     try {
-      await PublicApi.post("/questions/create", {
+      await PublicApi.post("/questions", {
         name: data.input1Value,
         contactEmail: data.input2Value,
         text: data.textAreaValue,

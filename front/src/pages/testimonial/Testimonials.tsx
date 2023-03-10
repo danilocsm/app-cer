@@ -17,13 +17,13 @@ function Testimonials() {
   const [showNewTestimonialForm, setShowNewTestimonialForm] = useState(false);
   const myRef = useRef(null);
   const { data, loading } = useFetch<TestimonialObjectProps[]>(
-    "/testimonials/all",
+    "/testimonials",
     []
   );
 
-  const onButtonClick = async () => {
+  const onButtonClick = () => {
     setShowNewTestimonialForm(true);
-    await setTimeout(() => {
+    setTimeout(() => {
       scrollToRef(myRef);
     }, 10);
   };
@@ -31,7 +31,7 @@ function Testimonials() {
   const onSubmit = async (event: FormEvent, data: any) => {
     event.preventDefault();
     try {
-      await PublicApi.post("/testimonials/create", {
+      await PublicApi.post("/testimonials", {
         author: data.input1Value || undefined,
         subject: data.input2Value,
         text: data.textAreaValue,

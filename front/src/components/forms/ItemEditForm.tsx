@@ -50,7 +50,7 @@ function ItemEditForm({
         link: inputs.link || link,
         description: inputs.description || description,
         imageUrl: base64 || image,
-        activitiesId: newActivities || activitiesId,
+        activitiesId: [...activitiesId, ...newActivities],
       });
       toast.success("Item editado com sucesso!");
     } catch (error: any) {
@@ -192,7 +192,7 @@ function ItemEditForm({
         </form>
 
         <ComboCheckBox
-          dataFetchUrl="/activities/all"
+          dataFetchUrl="/activities"
           contextType={ItemEditFormContext}
           filterData={activitiesId}
         />

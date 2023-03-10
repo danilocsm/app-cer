@@ -11,7 +11,7 @@ function Activity() {
   const activity: ActivityObjectProps = useLocation()
     .state as ActivityObjectProps;
   const { data, loading } = useFetch<ItemObjectProps[]>(
-    `/activities/${activity.id}/getItems`,
+    `/activities/${activity.id}/items`,
     []
   );
 

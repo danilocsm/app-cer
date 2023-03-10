@@ -18,12 +18,12 @@ export class QuestionsController implements Controller {
 
   initializeRoutes(): void {
     this.router.post(
-      "/create",
+      "",
       validationMiddleware(QuestionDTO, false),
       this.createQuestion
     );
 
-    this.router.get("/all", this.getAllQuestions);
+    this.router.get("", this.getAllQuestions);
 
     this.router.use(authMiddleware);
 

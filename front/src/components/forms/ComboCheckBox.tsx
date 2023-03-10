@@ -10,7 +10,7 @@ interface AddActivitiesFieldProps {
     setContext: (newValue: any) => void;
     isFormSent: boolean;
   }>;
-  filterData: any[];
+  filterData: string[];
 }
 
 function ComboCheckBox({
@@ -39,17 +39,17 @@ function ComboCheckBox({
         {(loading && <LoadingIcon />) ||
           (data.length > 0 &&
             data.map((data) => {
-              if (!filterData?.includes(data.id))
-                return (
-                  <ComboCheckBoxField
-                    key={data.id}
-                    dataName={data.name}
-                    dataId={data.id}
-                    onAdd={handleAddData}
-                    onRemove={handleRemoveData}
-                    contextType={contextType}
-                  />
-                );
+              return (
+                <ComboCheckBoxField
+                  key={data.id}
+                  dataName={data.name}
+                  dataId={data.id}
+                  checked={filterData?.includes(data.id)}
+                  onAdd={handleAddData}
+                  onRemove={handleRemoveData}
+                  contextType={contextType}
+                />
+              );
             })) || (
             <h1 className="place-self-center text-[20px]">
               Sem dados cadastrados

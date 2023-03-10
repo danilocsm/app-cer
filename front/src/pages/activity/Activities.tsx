@@ -6,10 +6,7 @@ import { useFetch } from "../../hooks/custom.hooks";
 import { ActivityObjectProps } from "../../lib/utils";
 
 function Activities() {
-  const { data, loading } = useFetch<ActivityObjectProps[]>(
-    "/activities/all",
-    []
-  );
+  const { data, loading } = useFetch<ActivityObjectProps[]>("/activities", []);
 
   return (
     <div className="w-100vw grid place-items-center">

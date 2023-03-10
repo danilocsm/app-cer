@@ -6,10 +6,7 @@ import { useFetch } from "../../hooks/custom.hooks";
 import { ItemObjectProps } from "../../lib/utils";
 
 function ItemsDashboard() {
-  const { data, loading, refetch } = useFetch<ItemObjectProps[]>(
-    "items/all",
-    []
-  );
+  const { data, loading, refetch } = useFetch<ItemObjectProps[]>("/items", []);
 
   return (
     <div className="w-screen flex flex-col items-center justify-center gap-y-8">

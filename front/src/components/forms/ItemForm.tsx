@@ -42,7 +42,7 @@ function ItemForm() {
     event.preventDefault();
     setIsSendingData(true);
     try {
-      await PrivateApi.post("/items/create", {
+      await PrivateApi.post("/items", {
         name: inputs.name,
         link: inputs.link,
         description: inputs.description,
@@ -203,7 +203,7 @@ function ItemForm() {
         />
         <span className="text-[22px]"> ATIVIDADES RELACIONADAS:</span>
         <ComboCheckBox
-          dataFetchUrl="/activities/all"
+          dataFetchUrl="/activities"
           contextType={ItemFormContext}
           filterData={[]}
         />
