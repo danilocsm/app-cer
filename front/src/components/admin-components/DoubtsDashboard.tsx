@@ -7,7 +7,7 @@ import DoubtCard from "./DoubtCard";
 
 function DoubtsDashboard() {
   const { data, loading, refetch } = useFetch<DoubtObjectProps[]>(
-    "/questions/all",
+    "/questions",
     []
   );
 

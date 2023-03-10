@@ -42,7 +42,7 @@ function ActivityForm() {
     event.preventDefault();
     setIsSendingData(true);
     try {
-      await PrivateApi.post("/activities/create", {
+      await PrivateApi.post("/activities", {
         ...inputs,
         difficulty: difficulty,
         image: base64,
@@ -142,7 +142,7 @@ function ActivityForm() {
         </form>
         <span className="text-[20px] self-start">INSERIR UTENSÍLIOS:</span>
         <ComboCheckBox
-          dataFetchUrl="/items/all"
+          dataFetchUrl="/items"
           contextType={ActivityFormContext}
           filterData={[]}
         />

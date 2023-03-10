@@ -64,7 +64,7 @@ function ActivityEditForm({
         illnesses: inputs.illnesses || illnesses,
         observations: inputs.observations || observations,
         image: base64AcitivityImage || image,
-        itemsId: newItems || itemsId,
+        itemsId: [...itemsId, ...newItems],
       });
       toast.success("Atividade atualizada com sucesso!");
     } catch (error: any) {
@@ -189,7 +189,7 @@ function ActivityEditForm({
         </form>
 
         <ComboCheckBox
-          dataFetchUrl="/items/all"
+          dataFetchUrl="/items"
           contextType={ActivityEditFormContext}
           filterData={itemsId}
         />

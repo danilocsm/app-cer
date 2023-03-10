@@ -1,9 +1,10 @@
 import { Check, Plus, X } from "phosphor-react";
-import { SyntheticEvent, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 interface AddActivityInputProps {
   dataName: string;
   dataId: string;
+  checked: boolean;
   onAdd: (event: any, activityName: string) => void;
   onRemove: (event: any, activityName: string) => void;
   contextType: React.Context<{
@@ -16,11 +17,12 @@ interface AddActivityInputProps {
 function ComboCheckBoxField({
   dataName,
   dataId,
+  checked,
   onAdd,
   onRemove,
   contextType,
 }: AddActivityInputProps) {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState<boolean>(checked);
   const { isFormSent } = useContext(contextType);
 
   const onClick = (event: any) => {
@@ -28,10 +30,6 @@ function ComboCheckBoxField({
     else onAdd(event, dataId);
     setIsChecked(!isChecked);
   };
-
-  useEffect(() => {
-    setIsChecked(false);
-  }, [isFormSent]);
 
   return (
     <div className="relative grid grid-flow-col justify-between w-full h-[40%] px-2 border-b-[1px] border-cerBlue">

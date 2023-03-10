@@ -16,21 +16,15 @@ export class ItemsController implements Controller {
   }
 
   initializeRoutes() {
-    this.router.get("/all", this.getAllItems);
+    this.router.get("", this.getItems);
 
     this.router.get("/:id", this.getUnique);
 
-    this.router.get("/all/:filter", this.getFilteredItems);
-
-    this.router.get("/:id/getActivities", this.getItemActivities);
+    this.router.get("/:id/activities", this.getItemActivities);
 
     this.router.use(authMiddleware);
 
-    this.router.post(
-      "/create",
-      validationMiddleware(ItemDTO, false),
-      this.createItem
-    );
+    this.router.post("", validationMiddleware(ItemDTO, false), this.createItem);
 
     this.router.patch(
       "/:id",
@@ -38,7 +32,7 @@ export class ItemsController implements Controller {
       this.updateItem
     );
 
-    this.router.patch("/:id/addActivities", this.addActivitiesToItem);
+    this.router.patch("/:id/activities", this.addActivitiesToItem);
 
     this.router.delete("/:id", this.deleteItem);
   }
@@ -73,30 +67,20 @@ export class ItemsController implements Controller {
     }
   };
 
-  private getAllItems = async (
+  private getItems = async (
     req: Request,
     res: Response,
     next: NextFunction
   ) => {
     try {
-      const allItems = await this.itemsService.getAll();
-      return res.status(200).json(allItems);
-    } catch (error) {
-      return next(error);
-    }
-  };
-
-  private getFilteredItems = async (
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) => {
-    try {
-      const filter = req.params.filter;
-      const filteredItems = await this.itemsService.getWithFilter(
-        req.params.filter as ItemType
-      );
-      return res.status(200).json(filteredItems);
+      const query = req.query;
+      let items;
+      if (query?.filter) {
+        items = await this.itemsService.getWithFilter(query.filter as ItemType);
+      } else {
+        items = await this.itemsService.getAll();
+      }
+      return res.status(200).json(items);
     } catch (error) {
       return next(error);
     }

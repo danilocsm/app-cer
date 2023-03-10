@@ -17,7 +17,7 @@ export class UserController implements Controller {
   initializeRoutes() {
     this.router.use(authMiddleware);
 
-    this.router.get("/all", this.getAllUsers);
+    this.router.get("", this.getAllUsers);
 
     this.router.get("/:id", this.getUniqueUser);
 

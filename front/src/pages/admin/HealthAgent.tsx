@@ -29,7 +29,7 @@ function HealthAgentPage() {
 
   useEffect(() => {
     if (isAuthenticated()) fecthUserData();
-  });
+  }, []);
 
   useEffect(() => {
     const sessionTimeout = setTimeout(() => {
